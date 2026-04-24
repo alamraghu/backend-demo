@@ -4,8 +4,7 @@
  * Implements hook_help().
  */
 function event_manager_help($route_name, $route_match) {
-  switch ($route_name) {
-    case 'help.page.event_manager':
-      return '<p>' . t('The Event Manager module provides functionality to manage events and event registrations.') . '</p>';
+  if ($route_name == 'help.page.event_manager') {
+    return "Event Manager module provides event registration functionality.";
   }
 }
