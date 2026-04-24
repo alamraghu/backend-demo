@@ -1,1 +1,4 @@
-
+services:
+  event_manager.storage:
+    class: Drupal\event_manager\Service\EventStorage
+    arguments: ['@database']
