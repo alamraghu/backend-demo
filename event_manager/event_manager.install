@@ -1,15 +1,34 @@
 <?php
 
 /**
- * Implements hook_install().
+ * Implements hook_schema().
  */
-function event_manager_install() {
-  // Add any installation logic here
-}
+function event_manager_schema() {
+  $schema['event_registrations'] = [
+    'description' => 'Stores event registrations',
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'not null' => TRUE,
+      ],
+      'name' => [
+        'type' => 'varchar',
+        'length' => 255,
+      ],
+      'email' => [
+        'type' => 'varchar',
+        'length' => 255,
+      ],
+      'event' => [
+        'type' => 'varchar',
+        'length' => 100,
+      ],
+      'created' => [
+        'type' => 'int',
+      ],
+    ],
+    'primary key' => ['id'],
+  ];
 
-/**
- * Implements hook_uninstall().
- */
-function event_manager_uninstall() {
-  // Add any uninstallation logic here
+  return $schema;
 }
