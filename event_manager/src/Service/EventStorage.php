@@ -2,23 +2,32 @@
 
 namespace Drupal\event_manager\Service;
 
-/**
- * Event Storage Service.
- */
+use Drupal\Core\Database\Connection;
+
 class EventStorage {
 
-  /**
-   * Stores an event.
-   */
-  public function saveEvent($event_data) {
-    // Storage logic here
+  protected $database;
+
+  public function __construct(Connection $database) {
+    $this->database = $database;
   }
 
-  /**
-   * Retrieves an event.
-   */
-  public function loadEvent($event_id) {
-    // Load logic here
+  public function save($data) {
+    $this->database->insert('event_registrations')
+      ->fields([
+        'name' => $data['name'],
+        'email' => $data['email'],
+        'event' => $data['event'],
+        'created' => time(),
+      ])
+      ->execute();
   }
 
+  public function getAll() {
+    return $this->database->select('event_registrations', 'e')
+      ->fields('e')
+      ->orderBy('created', 'DESC')
+      ->execute()
+      ->fetchAll();
+  }
 }
