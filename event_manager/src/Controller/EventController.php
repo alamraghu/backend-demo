@@ -4,18 +4,18 @@ namespace Drupal\event_manager\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 
-/**
- * Event Controller.
- */
 class EventController extends ControllerBase {
 
-  /**
-   * Admin page callback.
-   */
-  public function adminPage() {
+  public function list() {
     return [
-      '#markup' => t('Welcome to Event Manager'),
+      '#markup' => '
+        <h2>Upcoming Events</h2>
+        <ul>
+          <li>Drupal Workshop</li>
+          <li>React Bootcamp</li>
+          <li>API Development</li>
+        </ul>
+      ',
     ];
   }
-
 }
