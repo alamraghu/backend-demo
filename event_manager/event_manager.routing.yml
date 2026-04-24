@@ -1,0 +1,15 @@
+event_manager.admin_page:
+  path: '/admin/event-manager'
+  defaults:
+    _controller: '\Drupal\event_manager\Controller\EventController::adminPage'
+    _title: 'Event Manager'
+  requirements:
+    _permission: 'administer events'
+
+event_manager.register:
+  path: '/event/register/{event_id}'
+  defaults:
+    _form: '\Drupal\event_manager\Form\EventRegistrationForm'
+    _title: 'Register for Event'
+  requirements:
+    _permission: 'register for events'

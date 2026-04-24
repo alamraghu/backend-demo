@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * Implements hook_install().
+ */
+function event_manager_install() {
+  // Add any installation logic here
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function event_manager_uninstall() {
+  // Add any uninstallation logic here
+}
