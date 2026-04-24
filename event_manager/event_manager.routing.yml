@@ -13,3 +13,11 @@ event_manager.list:
     _title: 'Events'
   requirements:
     _permission: 'access content'
+
+event_manager.admin:
+  path: '/admin/event-registrations'
+  defaults:
+    _controller: '\Drupal\event_manager\Controller\EventController::list'
+    _title: 'Event Registrations'
+  requirements:
+    _permission: 'access administration pages'
